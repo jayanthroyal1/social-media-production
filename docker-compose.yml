@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  backend:
+    # build: ./backend
+    image: jayanthroyal/social-backend:latest
+    container_name: social-backend
+    ports:
+      - "5000:5000"
+
+  frontend:
+    # build: ./frontend
+    image: jayanthroyal/social-frontend:latest
+    container_name: social-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
