@@ -7,6 +7,13 @@ services:
     container_name: social-backend
     ports:
       - "5000:5000"
+    depends_on:
+      - redis
+    # Service name becomes hostname  
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    restart: always
 
   frontend:
     # build: ./frontend
@@ -16,3 +23,11 @@ services:
       - "3000:80"
     depends_on:
       - backend
+    restart: always
+
+  redis:
+   image: redis:7-alpine
+   container_name: social-redis
+   ports:
+    - "6379:6379"
+   restart: always   
