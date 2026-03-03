@@ -10,4 +10,26 @@ git add .
 git commit -m "Added login API"
 git push -u origin feature/login-api
 
-CI Test
+# docker-build.yml = Create images automatically in GitHub
+# docker-compose.yml = Run containers locally or on server
+
+| Feature              | docker-build.yml                       | docker-compose.yml                     |
+| -------------------- | -------------------------------------- | -------------------------------------- |
+| **Location**         | GitHub (.github/workflows)             | Local project folder                   |
+| **Purpose**          | CI/CD automation → Build & Push images | Run containers together                |
+| **Environment**      | GitHub cloud runner                    | Local PC, EC2, VPS                     |
+| **Triggers**         | Push to main, workflow dispatch        | You manually run it                    |
+| **Uses Docker Hub?** | Yes, pushes images                     | Optional, can use local images         |
+| **Builds images?**   | ✔ Yes                                  | ✔ Yes (if build is defined)            |
+| **Runs containers?** | ❌ No                                   | ✔ Yes                                  |
+| **Best for**         | Deployment                             | Local development + production runtime |
+
+
+--------------------------Redis Host and port-------------------------
+| Environment                 | REDIS_HOST            |
+| --------------------------- | --------------------- |
+| Local PC                    | `localhost`           |
+| Docker Compose              | `redis`               |
+| Docker standalone container | container internal IP |
+| Cloud VM / EC2              | public IP             |
+| Redis Cloud                 | host from Dashboard   |
