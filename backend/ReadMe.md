@@ -44,3 +44,49 @@ Long lived (7 days)
 Stored in Redis
 Can be revoked
 Used to generate new access token
+
+Login
+  ↓
+Access Token (15m)
+Refresh Token (7d stored in Redis)
+  ↓
+Access expires
+  ↓
+Call /refresh
+  ↓
+New Access Token
+
+Without rotation:
+If attacker steals refresh token,
+They can keep using it until it expires.
+
+With rotation:
+Every refresh request:
+Old refresh token is deleted
+New refresh token is created
+New one returned to user
+So if attacker tries to reuse old token → it fails.
+
+User sends:
+refreshToken: oldToken
+
+Server:
+Validate oldToken
+Delete oldToken
+Generate newRefreshToken
+Store newRefreshToken in Redis
+Return newAccessToken + newRefreshToken
+
+refreshToken → verify → delete old → generate new refresh → generate new access → store new refresh → return both
+
+# Global Error Handling
+
+Controller → throws error
+       ↓
+Express Error Middleware
+       ↓
+Formats response
+       ↓
+Logs error
+       ↓
+Sends structured JSON

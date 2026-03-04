@@ -11,7 +11,11 @@ services:
       - redis
     # Service name becomes hostname  
     environment:
-      - REDIS_HOST=redis
+      - PORT=5000
+      - JWT_ACCESS_SECRET=rX0vTLpMJVyc1kvXIO8RyZ2aaaepafYcgxRHHgZ2Dj79UIsfEtfhp8m5AR4CxVZDfsEqPKsyKeOZ72bTXbGbJA==
+      - JWT_REFRESH_SECRET=xYXxFOM2VhItASElucTrfsl9MhzyiOqAibUSV67/6KQcFYtGkAA4xuCtl+5kcACTJdezSer23DeWJSoP/v6z3w==
+      - MONGO_URI=mongodb+srv://jaySocial:social123@cluster0.odmmd1o.mongodb.net/socialApp
+      - REDIS_HOST=social-redis
       - REDIS_PORT=6379
     env_file:
       - ./backend/.env

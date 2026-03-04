@@ -6,6 +6,9 @@ const logger = require("./src/utils/logger");
 
 const PORT = process.env.PORT || 5000;
 
+console.log("ACCESS:", process.env.JWT_ACCESS_SECRET);
+console.log("REFRESH:", process.env.JWT_REFRESH_SECRET);
+
 const startServer = async () => {
   try {
     await connectDB();
