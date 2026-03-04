@@ -32,8 +32,7 @@ exports.register = async (req, res, next) => {
       },
     });
   } catch (err) {
-    res.status(500).json({ message: err.message });
-    logger.error(`Unable to register due to: ${err.message}`);
+    next(err);
   }
 };
 
@@ -90,13 +89,12 @@ exports.login = async (req, res, next) => {
       refreshToken,
     });
   } catch (err) {
-    res.status(500).json({ message: err.message });
-    logger.error(`Unable to login due to: ${err.message}`);
+    next(err);
   }
 };
 
 //Refresh Token
-exports.refreshTokenhandler = async (req, res) => {
+exports.refreshTokenhandler = async (req, res, next) => {
   try {
     const { refreshToken } = req.body;
     if (!refreshToken) {
@@ -126,8 +124,7 @@ exports.refreshTokenhandler = async (req, res) => {
       refreshToken: newRefreshToken,
     });
   } catch (err) {
-    logger.error(`Refresh Token Error:: ${error.message}`);
-    res.status(500).json({ message: "Server Error" });
+    next(err);
   }
 };
 
@@ -145,7 +142,6 @@ exports.logout = async (req, res) => {
       message: "Logged out successfully",
     });
   } catch (err) {
-    logger.error(`Logout Error:: ${err.message}`);
-    return res.status(500).json({ message: "Server Error" });
+    next(err);
   }
 };

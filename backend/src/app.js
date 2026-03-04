@@ -3,6 +3,7 @@ const cors = require("cors");
 const authRoutes = require("./routes/auth.routes");
 const logger = require("./utils/logger");
 const protect = require("./middleware/auth.middleware");
+const errorHandler = require("./middleware/error.middleware");
 
 const app = express();
 
@@ -21,5 +22,7 @@ app.get("/api/protected", protect, (req, res) => {
 app.get("/health", (req, res) => {
   res.json({ status: "Server running 🚀" });
 });
+
+app.use(errorHandler);
 
 module.exports = app;
