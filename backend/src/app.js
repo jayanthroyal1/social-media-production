@@ -7,6 +7,7 @@ const logger = require("./utils/logger");
 const protect = require("./middleware/auth.middleware");
 const errorHandler = require("./middleware/error.middleware");
 const authorize = require("./middleware/authorize.middleware");
+const postRoutes = require("./routes/post.routes");
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
 
 app.get("/api/protected", protect, (req, res) => {
   res.json({ message: "Access granted", userId: req.userId });
