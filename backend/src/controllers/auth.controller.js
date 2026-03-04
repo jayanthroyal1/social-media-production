@@ -9,7 +9,7 @@ exports.register = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
 
-    // Check User exisiting or not
+    // Check User exisiting or not  | 11000 = MongoDB duplicate key error.
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exist" });
@@ -66,7 +66,7 @@ exports.login = async (req, res, next) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    const accessToken = generateAccessToken(user._id);
+    const accessToken = generateAccessToken(user);
     const refreshToken = generateRefreshToken();
 
     // Store refresh token in redis for 7 days
@@ -110,8 +110,11 @@ exports.refreshTokenhandler = async (req, res, next) => {
 
     // 2️⃣ Delete old refresh token (rotation step)
     await redisClient.del(`refresh:${refreshToken}`);
+
+    // To get user fetch from DB
+    const user = await User.findById(userId);
     // 3️⃣ Generate new tokens
-    const newAccessToken = generateAccessToken(userId);
+    const newAccessToken = generateAccessToken(user);
     const newRefreshToken = generateRefreshToken();
 
     // 4️⃣ Store new refresh token

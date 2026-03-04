@@ -6,6 +6,7 @@ const authRoutes = require("./routes/auth.routes");
 const logger = require("./utils/logger");
 const protect = require("./middleware/auth.middleware");
 const errorHandler = require("./middleware/error.middleware");
+const authorize = require("./middleware/authorize.middleware");
 
 const app = express();
 
@@ -36,6 +37,10 @@ app.use("/api/auth", authRoutes);
 app.get("/api/protected", protect, (req, res) => {
   res.json({ message: "Access granted", userId: req.userId });
   logger.info(`Access granted for UserId: ${req.userId}`);
+});
+
+app.get("/admin-dashboard", protect, authorize("admin"), (req, res) => {
+  res.json({ message: "Welcome Admin" });
 });
 
 // Health check
