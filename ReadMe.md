@@ -33,3 +33,27 @@ git push -u origin feature/login-api
 | Docker standalone container | container internal IP |
 | Cloud VM / EC2              | public IP             |
 | Redis Cloud                 | host from Dashboard   |
+
+
+We have TWO compose modes:
+🧑‍💻 Development Mode
+build: ./backend
+Uses local code.
+
+🚀 Production Mode
+image: jayanthroyal/social-backend:latest
+Uses Docker Hub image.
+
+| Development       | Production       |
+| ----------------- | ---------------- |
+| Uses `build:`     | Uses `image:`    |
+| Local source code | Docker Hub image |
+| Debug-friendly    | Stable release   |
+| Rebuild often     | Pull only        |
+
+
+For Development Mode
+docker compose -f docker-compose.dev.yml up --build
+
+For Production Mode
+docker compose -f docker-compose.prod.yml up

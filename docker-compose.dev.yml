@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    # image: jayanthroyal/social-backend:latest
+    container_name: social-backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+    # Service name becomes hostname  
+    environment:
+      - PORT=5000
+      - JWT_ACCESS_SECRET=rX0vTLpMJVyc1kvXIO8RyZ2aaaepafYcgxRHHgZ2Dj79UIsfEtfhp8m5AR4CxVZDfsEqPKsyKeOZ72bTXbGbJA==
+      - JWT_REFRESH_SECRET=xYXxFOM2VhItASElucTrfsl9MhzyiOqAibUSV67/6KQcFYtGkAA4xuCtl+5kcACTJdezSer23DeWJSoP/v6z3w==
+      - MONGO_URI=mongodb+srv://jaySocial:social123@cluster0.odmmd1o.mongodb.net/socialApp
+      - REDIS_HOST=social-redis
+      - REDIS_PORT=6379
+    env_file:
+      - ./backend/.env
+    restart: always
+
+  frontend:
+    build: ./frontend
+    # image: jayanthroyal/social-frontend:latest
+    container_name: social-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: always
+
+  redis:
+   image: redis:7-alpine
+   container_name: social-redis
+   ports:
+    - "6379:6379"
+   restart: always   

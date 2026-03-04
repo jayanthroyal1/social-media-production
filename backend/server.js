@@ -1,18 +1,26 @@
-const express = require("express");
-const { connectRedis } = require("./src/config/redis");
-
-const app = express();
-
 require("dotenv").config();
-
-app.get("/health", (req, res, next) => {
-  res.json({ status: "Backend running inside Docker" });
-});
-
-connectRedis();
+const app = require("./src/app");
+const connectDB = require("./src/config/db");
+const { connectRedis } = require("./src/config/redis");
+const logger = require("./src/utils/logger");
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+console.log("ACCESS:", process.env.JWT_ACCESS_SECRET);
+console.log("REFRESH:", process.env.JWT_REFRESH_SECRET);
+
+const startServer = async () => {
+  try {
+    await connectDB();
+    await connectRedis();
+
+    app.listen(PORT, () => {
+      logger.info(`🚀 Server running on port ${PORT}`);
+    });
+  } catch (error) {
+    logger.error("❌ Failed to start server:", error);
+    process.exit(1);
+  }
+};
+
+startServer();

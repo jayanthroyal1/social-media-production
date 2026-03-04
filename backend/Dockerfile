@@ -10,6 +10,9 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install --production
 
+# Add logs
+RUN mkdir -p logs
+
 # Copy app source
 COPY . .
 
