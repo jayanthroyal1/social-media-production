@@ -115,3 +115,63 @@ Attacker can:
 Try 1 million passwords
 Hammer your login route
 Crash your server
+
+
+# 🎯 Why RBAC?
+
+Right now:
+Any logged-in user can access protected routes.
+But real apps need:
+👤 Normal user
+🛠 Admin
+📦 Moderator
+🏢 Super admin
+We must control access based on role.
+| Route           | Who Can Access |
+| --------------- | -------------- |
+| Create Post     | User           |
+| Delete Any Post | Admin          |
+| View Analytics  | Admin          |
+| Manage Users    | Super Admin    |
+
+# 🎯 Why RBAC?
+
+Right now:
+Any logged-in user can access protected routes.
+But real apps need:
+👤 Normal user
+🛠 Admin
+📦 Moderator
+🏢 Super admin
+We must control access based on role.
+| Route           | Who Can Access |
+| --------------- | -------------- |
+| Create Post     | User           |
+| Delete Any Post | Admin          |
+| View Analytics  | Admin          |
+| Manage Users    | Super Admin    |
+Without RBAC → Security disaster.
+
+# let's implement:
+
+1️⃣ Add role field in User model
+2️⃣ Store role inside JWT
+3️⃣ Create authorize middleware
+4️⃣ Protect routes with roles
+
+# 🚀 STEP 8 — Pagination + Caching Strategy (Scalable Data Architecture)
+But imagine:
+
+1 million users
+10 million posts
+100k requests per minute
+Without pagination and caching?
+
+💀 Your server dies.
+
+Let's implement:
+1️⃣ Proper Pagination
+2️⃣ Sorting
+3️⃣ Redis Caching
+4️⃣ Cache Invalidation Strategy
+5️⃣ Clean Architecture Patter
