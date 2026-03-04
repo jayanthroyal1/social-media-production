@@ -90,3 +90,28 @@ Formats response
 Logs error
        ↓
 Sends structured JSON
+
+# Helmet
+By default, Express exposes:
+X-Powered-By: Express
+Missing security headers
+Click jacking possible
+XSS risks
+Helmet fixes that.
+
+🔥 What Helmet Adds Automatically
+Hides Express signature
+Sets X-Content-Type-Options
+Prevents clickjacking
+Adds CSP
+Improves browser security
+This is mandatory in production.
+
+# Rate Limiting
+
+Without rate limiting:
+
+Attacker can:
+Try 1 million passwords
+Hammer your login route
+Crash your server
