@@ -7,6 +7,11 @@ services:
     container_name: social-backend
     ports:
       - "5000:5000"
+    volumes:
+    # existing volume. and it mounts the code inside the container for hot reload development
+      - ./backend:/app
+      # local backend/logs --> container /app/logs now both share same folder so that logs become visble in local
+      - ./backend/logs:/app/logs  
     depends_on:
       - redis
     # Service name becomes hostname  

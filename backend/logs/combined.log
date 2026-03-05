@@ -1,0 +1,17 @@
+[2026-03-05 10:03:64]-ERROR::MongoDB Connection Error:
+[2026-03-05 10:03:11]-ERROR::MongoDB Connection Error:
+[2026-03-05 10:03:22]-ERROR::MongoDB Connection Error:
+[2026-03-05 10:03:67]-ERROR::MongoDB Connection Error:
+[2026-03-05 10:03:83]-INFO::✅ MongoDB Connected
+[2026-03-05 10:03:84]-INFO::✅ Redis Connected
+[2026-03-05 10:03:84]-INFO::🚀 Server running on port 5000
+[2026-03-05 10:03:14]-INFO::Api Request method: POST and from: /api/auth/register
+[2026-03-05 10:03:20]-ERROR::AppError is not defined
+[2026-03-05 10:03:29]-INFO::Api Request method: POST and from: /api/auth/register
+[2026-03-05 10:03:33]-ERROR::AppError is not defined
+[2026-03-05 10:03:28]-INFO::✅ MongoDB Connected
+[2026-03-05 10:03:28]-INFO::✅ Redis Connected
+[2026-03-05 10:03:29]-INFO::🚀 Server running on port 5000
+[2026-03-05 10:03:45]-INFO::Api Request method: POST and from: /api/auth/register
+[2026-03-05 10:03:51]-ERROR::User already exists
+[2026-03-05 11:03:55]-INFO::Api Request method: GET and from: /health

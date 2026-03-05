@@ -3,6 +3,7 @@ const User = require("../models/User");
 const { generateAccessToken, generateRefreshToken } = require("../utils/token");
 const { redisClient } = require("../config/redis");
 const logger = require("../utils/logger");
+const AppError = require("../utils/AppError");
 
 //Register
 exports.register = async (req, res, next) => {
@@ -12,7 +13,7 @@ exports.register = async (req, res, next) => {
     // Check User exisiting or not  | 11000 = MongoDB duplicate key error.
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ message: "User already exist" });
+      return next(new AppError("User already exists", 400));
     }
     // Hash Password
     const hashedPassword = await bcrypt.hash(password, 10);
