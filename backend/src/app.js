@@ -9,6 +9,8 @@ const authorize = require("./middleware/authorize.middleware");
 const postRoutes = require("./routes/post.routes");
 const apiLimiter = require("./middleware/rateLimit.middleware");
 const apiCors = require("./middleware/cors.middleware");
+const commentRoutes = require("./routes/comment.routes");
+const likeRoutes = require("./routes/likes.routes");
 
 const app = express();
 
@@ -26,6 +28,8 @@ app.use((req, res, next) => {
 app.use("/api", apiLimiter);
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
+app.use("/api/comments", commentRoutes);
+app.use("api/likes", likeRoutes);
 
 app.get("/api/protected", protect, (req, res) => {
   res.json({ message: "Access granted", userId: req.userId });
