@@ -236,3 +236,162 @@ X-Content-Type-Options: nosniff
 
 These headers block several common attacks.
 Helmet is standard in production Express apps.
+
+# 🧠 STEP 13 — Comments System (Advanced Data Modeling)
+
+This step is not just about adding comments.
+It teaches how to design relationships in MongoDB.
+
+We will cover:
+
+1️⃣ Data modeling strategies
+2️⃣ Embedding vs Referencing
+3️⃣ Comment schema design
+4️⃣ Comment CRUD APIs
+5️⃣ Pagination for comments
+6️⃣ Performance considerations
+7️⃣ Cache invalidation strategy
+
+This is real backend system design
+
+// Designing comments 
+ Two Ways
+ 1. Embedded Inside Posts 
+ Ex: 
+ {
+  "_id": "post1",
+  "content": "Hello world",
+  "comments": [
+    {
+      "userId": "user1",
+      "text": "Nice post"
+    },
+    {
+      "userId": "user2",
+      "text": "Great!"
+    }
+  ]
+}
+Advantages
+✔ Fast reads
+✔ Single query
+Cons:
+MongoDB Document size limit 16MB (exceeds)
+
+ 2. Stored Separately (Referenced comments)
+Comments stored in seperate collection
+Post
+{
+  "_id": "post1",
+  "content": "Hello world"
+}
+Comment
+{
+  "_id": "comment1",
+  "postId": "post1", // reference to the post
+  "userId": "user2", // refernect to the user
+  "text": "Nice post"
+}
+Advantages
+✔ Infinite comments possible
+✔ Better scalability
+✔ Efficient pagination
+✔ Easier indexing
+# Comments System Architecture
+Users
+  │
+  │ 1..*
+  ▼
+Posts
+  │
+  │ 1..*
+  ▼
+Comments
+
+Relationship:
+Post → Many Comments
+User → Many Comments
+
+## Likes
+# ❤️ STEP 14 — Likes System (Scalable Many-to-Many Design)
+This step teaches several real production concepts:
+1️⃣ Many-to-Many relationships in MongoDB
+2️⃣ Toggle like logic (like/unlike)
+3️⃣ Unique compound indexes
+4️⃣ Efficient like counting
+5️⃣ Avoiding duplicate likes
+6️⃣ Performance considerations
+This is exactly the pattern used in social platforms
+🧠 First: Understanding the Relationship
+A like system has a many-to-many relationship.
+User  → many likes
+Post  → many likes
+
+Example:
+User A likes Post 1
+User B likes Post 1
+User C likes Post 1
+
+Also:
+User A likes Post 1
+User A likes Post 2
+User A likes Post 3
+
+So relationship looks like:
+Users  ↔  Posts
+This cannot be stored directly in either collection efficiently.
+🧩 Possible Approaches
+Two Main Designs
+1. Store likes inside Post
+Ex: {
+  "_id": "post1",
+  "content": "Hello",
+  "likes": [
+    "user1",
+    "user2",
+    "user3"
+  ]
+}
+Problems:
+If a post goes viral:
+1M likes
+The array grows huge.
+Problems:
+❌ document size increases
+❌ updates become slow
+❌ concurrency issues
+## MongoDB document limit:16MB (For larger memory we need to use GridFS - Which splits large files into chunks and stores them across multiple documents) - 
+Ex: const bucket = new mongoose.mongo.GridFSBucket(db);
+
+In General: Frontend → Upload file → AWS S3 / Cloudinary
+                       ↓
+                   store URL in MongoDB
+MongoDB stores only metadata:
+{
+  "title": "Post",
+  "imageUrl": "https://cloudinary.com/image123.jpg"
+}
+
+2. Separate Likes Collection 
+  Likes Collection
+  EX: {
+   "_id": "like1",
+   "postId": "post1",
+   "userId": "user1"
+   }
+Each like becomes a separate document.
+Advantages:
+✔ infinite scalability
+✔ faster writes
+✔ easier indexing
+✔ supports analytics
+This is how large systems handle likes.
+# 🏗 Architecture
+Users
+  │
+  │ 1..*
+  ▼
+Likes
+  ▲
+  │ 1..*
+Posts
