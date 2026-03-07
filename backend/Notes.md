@@ -419,3 +419,17 @@ There are three major types.
 | Unit Test        | Single function      | password hashing   |
 | Integration Test | API + DB interaction | POST /login        |
 | E2E Test         | Entire system        | frontend + backend |
+
+# MongoDB setup for Testing
+Start Test
+↓
+Create Temporary MongoDB
+↓
+Run Tests
+↓
+Delete Database
+↓
+Stop MongoDB
+
+# Install MongoDB Memory Server
+npm install --save-dev mongodb-memory-server

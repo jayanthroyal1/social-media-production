@@ -12,7 +12,7 @@ console.log("REFRESH:", process.env.JWT_REFRESH_SECRET);
 const startServer = async () => {
   try {
     await connectDB();
-    await connectRedis();
+    // await connectRedis();
 
     app.listen(PORT, () => {
       logger.info(`🚀 Server running on port ${PORT}`);

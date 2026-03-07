@@ -172,3 +172,4 @@
 [2026-03-06 17:03:22]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
 [2026-03-06 17:03:23]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
 [2026-03-06 17:03:41]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-07 16:03:09]-INFO::Api Request method: POST and from: /api/auth/register
