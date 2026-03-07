@@ -15,3 +15,160 @@
 [2026-03-05 10:03:45]-INFO::Api Request method: POST and from: /api/auth/register
 [2026-03-05 10:03:51]-ERROR::User already exists
 [2026-03-05 11:03:55]-INFO::Api Request method: GET and from: /health
+[2026-03-06 17:03:32]-INFO::✅ MongoDB Connected
+[2026-03-06 17:03:33]-INFO::✅ Redis Connected
+[2026-03-06 17:03:33]-INFO::🚀 Server running on port 5000
+[2026-03-06 17:03:42]-INFO::Api Request method: GET and from: /health
+[2026-03-06 17:03:64]-INFO::Api Request method: GET and from: /api-docs
+[2026-03-06 17:03:65]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:68]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:68]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:68]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:68]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:92]-INFO::Api Request method: GET and from: /
+[2026-03-06 17:03:94]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-06 17:03:67]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:69]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:01]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:13]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:16]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:16]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:17]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:17]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:17]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:20]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:36]-INFO::Api Request method: GET and from: /
+[2026-03-06 17:03:42]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-06 17:03:84]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:88]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:88]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:89]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:89]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:89]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:94]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:100]-INFO::Api Request method: GET and from: /
+[2026-03-06 17:03:99]-INFO::Api Request method: GET and from: /api/health
+[2026-03-06 17:03:73]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:74]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:75]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:75]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:76]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:50]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:53]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:62]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:90]-INFO::Api Request method: GET and from: /health
+[2026-03-06 17:03:94]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:00]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:04]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:39]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:42]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:42]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:43]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:43]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:43]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:47]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:54]-INFO::Api Request method: GET and from: /
+[2026-03-06 17:03:62]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-06 17:03:10]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:14]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:14]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:14]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:14]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:16]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:18]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:33]-INFO::Api Request method: GET and from: /
+[2026-03-06 17:03:40]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-06 17:03:21]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:24]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:24]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:24]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:25]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:25]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:28]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:45]-INFO::Api Request method: GET and from: /
+[2026-03-06 17:03:53]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-06 17:03:22]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:25]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:25]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:26]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:26]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:26]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:29]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:38]-INFO::Api Request method: GET and from: /
+[2026-03-06 17:03:45]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-06 17:03:72]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:76]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:77]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:77]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:77]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:77]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:83]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:88]-INFO::Api Request method: GET and from: /
+[2026-03-06 17:03:96]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-06 17:03:54]-INFO::✅ MongoDB Connected
+[2026-03-06 17:03:55]-INFO::✅ Redis Connected
+[2026-03-06 17:03:55]-INFO::🚀 Server running on port 5000
+[2026-03-06 17:03:01]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:04]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:05]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:05]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:05]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:06]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:11]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:28]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-06 17:03:10]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:11]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:13]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:56]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:59]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:59]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:60]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:60]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:60]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:63]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:85]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-06 17:03:37]-INFO::✅ MongoDB Connected
+[2026-03-06 17:03:38]-INFO::✅ Redis Connected
+[2026-03-06 17:03:39]-INFO::🚀 Server running on port 5000
+[2026-03-06 17:03:79]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:82]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:82]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:83]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:83]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:02]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-06 17:03:93]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:95]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:95]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:95]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:96]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:03]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-06 17:03:69]-INFO::✅ MongoDB Connected
+[2026-03-06 17:03:70]-INFO::✅ Redis Connected
+[2026-03-06 17:03:70]-INFO::🚀 Server running on port 5000
+[2026-03-06 17:03:99]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:100]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:28]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:29]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:32]-INFO::Api Request method: GET and from: /.well-known/appspecific/com.chrome.devtools.json
+[2026-03-06 17:03:32]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:33]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:33]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:33]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:37]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css.map
+[2026-03-06 17:03:63]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
+[2026-03-06 17:03:68]-INFO::✅ MongoDB Connected
+[2026-03-06 17:03:27]-INFO::✅ MongoDB Connected
+[2026-03-06 17:03:35]-INFO::✅ MongoDB Connected
+[2026-03-06 17:03:36]-INFO::✅ Redis Connected
+[2026-03-06 17:03:36]-INFO::🚀 Server running on port 5000
+[2026-03-06 17:03:64]-INFO::Api Request method: POST and from: /api/auth/register
+[2026-03-06 17:03:49]-ERROR::User already exists
+[2026-03-06 17:03:36]-INFO::Api Request method: POST and from: /api/auth/register
+[2026-03-06 17:03:23]-INFO::Api Request method: POST and from: /api/auth/login
+[2026-03-06 17:03:34]-INFO::User logged in: jayOne@test.com
+[2026-03-06 17:03:20]-INFO::Api Request method: GET and from: /api-docs/
+[2026-03-06 17:03:22]-INFO::Api Request method: GET and from: /api-docs/swagger-ui.css
+[2026-03-06 17:03:22]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-bundle.js
+[2026-03-06 17:03:22]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-standalone-preset.js
+[2026-03-06 17:03:23]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
+[2026-03-06 17:03:41]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png

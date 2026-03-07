@@ -4,8 +4,18 @@ const { toggleLike, getPostLikes } = require("../controllers/like.controller");
 
 const router = express.Router();
 
-router.post("/", protect, toggleLike);
+/**
+ * @swagger
+ * /api/likes:
+ *   post:
+ *     summary: Toggle like on a post
+ *     tags: [Likes]
+ *     responses:
+ *       200:
+ *         description: Like toggled
+ */
 
+router.post("/", protect, toggleLike);
 router.get("/:postId", getPostLikes);
 
 module.exports = router;

@@ -1,21 +1,30 @@
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
+const swaggerUi = require("swagger-ui-express");
+// ----------------------------------------------------------------------
 const authRoutes = require("./routes/auth.routes");
 const logger = require("./utils/logger");
 const protect = require("./middleware/auth.middleware");
 const errorHandler = require("./middleware/error.middleware");
 const authorize = require("./middleware/authorize.middleware");
 const postRoutes = require("./routes/post.routes");
-const apiLimiter = require("./middleware/rateLimit.middleware");
-const apiCors = require("./middleware/cors.middleware");
+const { apiLimiter } = require("./middleware/rateLimit.middleware");
+// const apiCors = require("./middleware/cors.middleware");
 const commentRoutes = require("./routes/comment.routes");
 const likeRoutes = require("./routes/likes.routes");
+const swaggerSpec = require("./config/swagger");
 
 const app = express();
 
 // Middlewares
-app.use(apiCors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true,
+  }),
+);
 app.use(helmet());
 app.use(express.json({ limit: "10kb" }));
 
@@ -44,6 +53,8 @@ app.get("/admin-dashboard", protect, authorize("admin"), (req, res) => {
 app.get("/health", (req, res) => {
   res.json({ status: "Server running 🚀" });
 });
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use(errorHandler);
 

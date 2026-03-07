@@ -7,6 +7,16 @@ const {
 
 const router = express.Router();
 
+/**
+ * @swagger
+ * /api/comments:
+ *   post:
+ *     summary: Add comment to post
+ *     tags: [Comments]
+ *     responses:
+ *       201:
+ *         description: Comment created
+ */
 router.post("/", protect, createComment);
 router.get("/:postId", getComments);
 

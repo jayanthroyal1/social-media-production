@@ -395,3 +395,27 @@ Likes
   ▲
   │ 1..*
 Posts
+
+## Step 15 🏗 Swagger Architecture
+
+Swagger uses two main packages:
+| Package            | Purpose                         |
+| ------------------ | ------------------------------- |
+| swagger-jsdoc      | Generate API specification      |
+| swagger-ui-express | Serve interactive documentation |
+
+## Testing
+What automated tests do:
+Run all API tests automatically
+↓
+Verify endpoints still work
+↓
+Prevent bugs from reaching production
+# Types of Backend Tests
+
+There are three major types.
+| Type             | What it tests        | Example            |
+| ---------------- | -------------------- | ------------------ |
+| Unit Test        | Single function      | password hashing   |
+| Integration Test | API + DB interaction | POST /login        |
+| E2E Test         | Entire system        | frontend + backend |

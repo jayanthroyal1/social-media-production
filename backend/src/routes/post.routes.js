@@ -13,7 +13,16 @@ const {
   postIdSchema,
 } = require("../validators/post.validator");
 const router = express.Router();
-
+/**
+ * @swagger
+ * /api/posts:
+ *   get:
+ *     summary: Get paginated posts
+ *     tags: [Posts]
+ *     responses:
+ *       200:
+ *         description: List of posts
+ */
 router.get("/", protect, validation(paginationSchema, "query"), getPosts);
 router.post("/", protect, validation(createPostSchema), createPost);
 router.put("/:id", protect, validation(postIdSchema, "params"), updatePost);
