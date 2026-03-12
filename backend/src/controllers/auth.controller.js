@@ -71,9 +71,11 @@ exports.login = async (req, res, next) => {
     const refreshToken = generateRefreshToken();
 
     // Store refresh token in redis for 7 days
-    await redisClient.set(`refresh:${refreshToken}`, user._id.toString(), {
-      EX: 7 * 24 * 60 * 60,
-    });
+    if (redisClient) {
+      await redisClient.set(`refresh:${refreshToken}`, user._id.toString(), {
+        EX: 7 * 24 * 60 * 60,
+      });
+    }
 
     logger.info(`User logged in: ${email}`);
 

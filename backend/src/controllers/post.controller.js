@@ -1,6 +1,7 @@
 const { redisClient } = require("../config/redis");
 const Post = require("../models/Post");
 const AppError = require("../utils/AppError");
+const { setCache, getCache } = require("../utils/cache");
 const logger = require("../utils/logger");
 
 exports.getPosts = async (req, res, next) => {
@@ -21,11 +22,15 @@ exports.getPosts = async (req, res, next) => {
     // Why?
     // Redis is memory-based → microseconds response time.
     // MongoDB is disk-based → milliseconds.
-    const cachedData = await redisClient.get(cacheKey);
+    // const cachedData = await redisClient.get(cacheKey);
+    const cachedData = await getCache(cacheKey);
 
     if (cachedData) {
       logger.info("Serving from cache");
-      return res.json(JSON.parse(cachedData));
+      return res.json({
+        source: "cache",
+        data: cachedData,
+      });
     }
     // 🔹 2. Fetch from DB
     const posts = await Post.find()
@@ -45,11 +50,15 @@ exports.getPosts = async (req, res, next) => {
       posts,
     };
     // 🔹 3. Store in cache for 60 seconds
-    await redisClient.set(cacheKey, JSON.stringify(response), {
-      expiration: 60,
-    });
+    // await redisClient.set(cacheKey, JSON.stringify(response), {
+    //   expiration: 60,
+    // });
+    await setCache(cacheKey, posts, 120);
     logger.info("Serving from DB");
-    res.json(response);
+    res.json({
+      source: "database",
+      data: response,
+    });
   } catch (err) {
     next(err);
   }
