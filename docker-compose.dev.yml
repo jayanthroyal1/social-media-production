@@ -13,7 +13,8 @@ services:
       # local backend/logs --> container /app/logs now both share same folder so that logs become visble in local
       - ./backend/logs:/app/logs  
     depends_on:
-      - redis
+      redis:
+        condition: service_healthy
     # Service name becomes hostname  
     environment:
       - PORT=5000
@@ -43,4 +44,9 @@ services:
    container_name: social-redis
    ports:
     - "6379:6379"
-   restart: always   
+   healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+   restart: always

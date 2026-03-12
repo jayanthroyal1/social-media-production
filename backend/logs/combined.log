@@ -196,3 +196,9 @@
 [2026-03-12 20:03:15]-INFO::Redis Connected
 [2026-03-12 20:03:00]-INFO::✅ MongoDB Connected
 [2026-03-12 20:03:01]-INFO::🚀 Server running on port 5000
+[2026-03-12 20:03:04]-INFO::✅ MongoDB Connected
+[2026-03-12 20:03:05]-INFO::🚀 Server running on port 5000
+[2026-03-12 21:03:51]-INFO::✅ MongoDB Connected
+[2026-03-12 21:03:52]-INFO::🚀 Server running on port 5000
+[2026-03-12 21:03:68]-INFO::Api Request method: GET and from: /health
+[2026-03-12 21:03:90]-INFO::Api Request method: GET and from: /favicon.ico
