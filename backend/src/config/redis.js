@@ -1,29 +1,19 @@
 const { createClient } = require("redis");
-const logger = require("../utils/logger");
 
-let redisClient = null;
-
-// do not start redis during tests during test make it !==
-// if (process.env.NODE_ENV === "test") {
-//   redisClient = createClient({
-//     url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
-//   });
-redisClient = createClient({
+const redisClient = createClient({
   url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
 });
 
 redisClient.on("connect", () => {
-  console.log("::✅ Redis Connected");
+  console.log("✅ Redis Connected");
 });
 
-redisClient.on("error", (err) => {
-  logger.error(`Redis Error: ${err}`);
+redisClient.on("error", (error) => {
+  console.log("Redis Error", error);
 });
 
-redisClient
-  .connect()
-  .then(() => logger.info("Redis Connected"))
-  .catch((err) => logger.error(`Redis Connection Failed: ${err}`));
-// }
+const connectRedis = async () => {
+  await redisClient.connect();
+};
 
-module.exports = { redisClient };
+module.exports = { redisClient, connectRedis };
