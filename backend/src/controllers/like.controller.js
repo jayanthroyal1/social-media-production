@@ -1,4 +1,6 @@
+const { addNotificationJob } = require("../jobs/notification.job");
 const Like = require("../models/Like");
+const Post = require("../models/Post");
 const AppError = require("../utils/AppError");
 
 exports.toggleLike = async (req, res, next) => {
@@ -32,6 +34,13 @@ exports.toggleLike = async (req, res, next) => {
       success: true,
       liked: true,
       message: "Post liked",
+    });
+
+    const post = await Post.findById(postId);
+
+    await addNotificationJob({
+      userId: post?.user,
+      postId: post?._id,
     });
   } catch (err) {
     next(err);

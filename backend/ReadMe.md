@@ -175,3 +175,68 @@ Let's implement:
 3️⃣ Redis Caching
 4️⃣ Cache Invalidation Strategy
 5️⃣ Clean Architecture Patter
+
+# What is BullMQ:
+BullMQ is a Node.js job queue library.
+which provides: 
+Queue
+Worker
+Scheduler
+Retry logic
+Delayed jobs
+Job priority
+Concurrency
+
+BullMQ internally uses ioredis instead of redis client.
+| Folder  | Purpose             |
+| ------- | ------------------- |
+| queues  | queue configuration |
+| jobs    | job creation        |
+| workers | job processing      |
+
+1️⃣ Why We Cannot Store Images in MongoDB
+
+Some beginners store images directly in MongoDB using Base64 or Buffer.
+Example (bad idea):
+MongoDB
+ └ image: base64data
+
+Problems:
+Database becomes huge
+Slow queries
+Memory issues
+Difficult CDN integration
+
+Production systems store only:
+imageUrl
+Example document:
+{
+ "caption": "Sunset",
+ "image": "https://res.cloudinary.com/.../image.jpg"
+}
+
+| Service              | Used By             |
+| -------------------- | ------------------- |
+| AWS S3               | Netflix             |
+| Cloudinary           | Instagram-like apps |
+| Google Cloud Storage | YouTube             |
+| Azure Blob           | Microsoft apps      |
+npm install multer cloudinary multer-storage-cloudinary
+| Package                   | Purpose                     |
+| ------------------------- | --------------------------- |
+| multer                    | handles file uploads        |
+| cloudinary                | image storage               |
+| multer-storage-cloudinary | connect multer + cloudinary |
+
+Architecture...
+Client
+ ↓
+API (Express)
+ ↓
+Multer Middleware
+ ↓
+Cloudinary Upload
+ ↓
+MongoDB (store image URL)
+ ↓
+Response
