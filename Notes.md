@@ -156,3 +156,13 @@ api.jaynirvan.online
 Nginx
         ↓
 localhost:5000 (future backend container)
+
+# For SSL 
+Using Let's Encrypt
+EC2 
+  Nginx
+  certbot
+  Let's Encrypt CA
+
+Flow
+Certbot --> Let's Encrypt --> Verifies domain ownership ---> Issues SSL certificate

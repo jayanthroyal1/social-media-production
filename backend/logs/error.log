@@ -8,3 +8,6 @@
 [2026-03-06 17:03:69]-ERROR::❌ Failed to start server: Cannot read properties of null (reading 'connect')
 [2026-03-06 17:03:07]-ERROR::❌ Failed to start server: Cannot read properties of null (reading 'connect')
 [2026-03-06 17:03:49]-ERROR::User already exists
+[2026-03-12 20:03:40]-ERROR::MongoDB Connection Error:
+[2026-03-12 20:03:78]-ERROR::MongoDB Connection Error:
+[2026-03-12 20:03:92]-ERROR::MongoDB Connection Error:

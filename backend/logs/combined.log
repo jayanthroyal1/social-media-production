@@ -173,3 +173,17 @@
 [2026-03-06 17:03:23]-INFO::Api Request method: GET and from: /api-docs/swagger-ui-init.js
 [2026-03-06 17:03:41]-INFO::Api Request method: GET and from: /api-docs/favicon-32x32.png
 [2026-03-07 16:03:09]-INFO::Api Request method: POST and from: /api/auth/register
+[2026-03-12 20:03:40]-ERROR::MongoDB Connection Error:
+[2026-03-12 20:03:78]-ERROR::MongoDB Connection Error:
+[2026-03-12 20:03:92]-ERROR::MongoDB Connection Error:
+[2026-03-12 20:03:16]-INFO::✅ MongoDB Connected
+[2026-03-12 20:03:17]-INFO::🚀 Server running on port 5000
+[2026-03-12 20:03:22]-INFO::✅ MongoDB Connected
+[2026-03-12 20:03:23]-INFO::🚀 Server running on port 5000
+[2026-03-12 20:03:39]-INFO::✅ MongoDB Connected
+[2026-03-12 20:03:40]-INFO::🚀 Server running on port 5000
+[2026-03-12 20:03:64]-INFO::✅ MongoDB Connected
+[2026-03-12 20:03:65]-INFO::🚀 Server running on port 5000
+[2026-03-12 20:03:81]-INFO::Redis Connected
+[2026-03-12 20:03:58]-INFO::✅ MongoDB Connected
+[2026-03-12 20:03:58]-INFO::🚀 Server running on port 5000

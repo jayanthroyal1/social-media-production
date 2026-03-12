@@ -4,6 +4,10 @@ services:
     container_name: social-backend
     ports:
       - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     depends_on:
       - redis
     env_file:
@@ -16,6 +20,10 @@ services:
     ports:
       - "3000:80"
     restart: always
+    env_file:
+      - ./frontend/.env
+    depends_on:
+      - backend
 
   redis:
     image: redis:7-alpine
