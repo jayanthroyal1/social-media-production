@@ -12,6 +12,7 @@ const {
   createPostSchema,
   postIdSchema,
 } = require("../validators/post.validator");
+const upload = require("../middleware/upload.middleware");
 const router = express.Router();
 /**
  * @swagger
@@ -24,7 +25,13 @@ const router = express.Router();
  *         description: List of posts
  */
 router.get("/", protect, validation(paginationSchema, "query"), getPosts);
-router.post("/", protect, validation(createPostSchema), createPost);
+router.post(
+  "/",
+  protect,
+  validation(createPostSchema),
+  upload.single("image"),
+  createPost,
+);
 router.put("/:id", protect, validation(postIdSchema, "params"), updatePost);
 router.delete("/:id", protect, validation(postIdSchema, "params"), deletePost);
 

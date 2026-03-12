@@ -240,3 +240,22 @@ Cloudinary Upload
 MongoDB (store image URL)
  ↓
 Response
+
+# Full request flow:
+Client uploads image
+ ↓
+Express route
+ ↓
+upload.single("image")
+ ↓
+Multer processes file
+ ↓
+Cloudinary uploads image
+ ↓
+req.file.path created
+ ↓
+Controller stores URL in MongoDB
+ ↓
+Cache invalidated
+ ↓
+Response sent

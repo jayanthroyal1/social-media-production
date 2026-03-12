@@ -68,13 +68,15 @@ exports.createPost = async (req, res, next) => {
   try {
     const { content } = req.body;
     // 1️⃣ Validate input
-    if (!content) {
-      return new AppError("Content is required", 400);
+    if (!content && !req.file) {
+      return next(new AppError("Post must contain text or image", 400));
     }
+    const imageUrl = req.file ? req.file.path : null;
     // 2️⃣ Create post linked to logged-in user
     const post = await Post.create({
       userId: req.userId,
       content,
+      image: imageUrl,
     });
     // 3️⃣ Invalidate cache
     const keys = await redisClient.keys("posts:*");
@@ -91,6 +93,29 @@ exports.createPost = async (req, res, next) => {
     next(err);
   }
 };
+
+// exports.createPost = async (req, res, next) => {
+//   try {
+//     const { caption } = req.body;
+//     if (!caption) {
+//       return next(new AppError("Caption not found", 404));
+//     }
+//     const imageUrl = req.file ? req.file.path : null;
+//     const post = await Post.create({
+//       caption,
+//       image: imageUrl,
+//       user: req.userId,
+//     });
+
+//     res.status(201).json({
+//       success: true,
+//       message: "Post Created",
+//       post,
+//     });
+//   } catch (err) {
+//     next(err);
+//   }
+// };
 
 exports.updatePost = async (req, res, next) => {
   try {
