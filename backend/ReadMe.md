@@ -259,3 +259,231 @@ Controller stores URL in MongoDB
 Cache invalidated
  ↓
 Response sent
+
+# Add auto deployment.
+Developer pushes code to main
+        ↓
+GitHub Actions
+        ↓
+Build Docker image
+        ↓
+Push to Docker Hub
+        ↓
+SSH into EC2 server
+        ↓
+Pull latest image
+        ↓
+Restart Docker containers
+
+# Deployment Architecture
+Server environment:
+AWS EC2
+ ├ Docker
+ ├ Docker Compose
+ └ Running containers
+
+Containers:
+ backend
+ frontend
+ redis
+
+Images pulled from:
+ Docker Hub
+
+# Production Architecture
+User Browser
+      ↓
+Internet
+      ↓
+Domain Name (DNS)
+      ↓
+AWS Route53 / Domain Provider
+      ↓
+Public IP → EC2 Server
+      ↓
+Nginx Reverse Proxy
+      ↓
+Docker Containers
+   ├ frontend container
+   ├ backend container
+   └ redis container
+      ↓
+External services
+   ├ MongoDB Atlas
+   └ Cloudinary
+
+# Deployment Pipeline
+Developer pushes code
+      ↓
+GitHub Repository
+      ↓
+GitHub Actions
+      ↓
+Build Docker Images
+      ↓
+Push to Docker Hub
+      ↓
+SSH to EC2
+      ↓
+Pull new images
+      ↓
+Restart containers
+
+# InfraStructure
+| Component      | Purpose              |
+| -------------- | -------------------- |
+| Domain         | Public website name  |
+| DNS            | Maps domain → server |
+| EC2            | Compute server       |
+| Elastic IP     | Static public IP     |
+| Security Group | Firewall             |
+| Docker         | Run application      |
+| Nginx          | Reverse proxy        |
+| SSL            | HTTPS security       |
+| CI/CD          | Automated deployment |
+
+NameCheap already give DNS but still we move DNS to AWS
+| Reason            | Explanation               |
+| ----------------- | ------------------------- |
+| AWS Integration   | Works perfectly with EC2  |
+| High Availability | AWS global DNS network    |
+| Advanced routing  | Failover, latency routing |
+| DevOps learning   | Industry standard         |
+Service:
+
+Amazon Route 53
+Current situation:
+
+jaynirvan.online
+     ↓
+Namecheap DNS
+
+We will change it to:
+
+jaynirvan.online
+     ↓
+Route53 Nameservers
+     ↓
+Route53 Hosted Zone
+     ↓
+DNS Records
+     ↓
+EC2 Elastic IP
+
+AWS --> Route 53 --> Hosited Zone (Create it)
+Hosted Zones are like DNS databse for a domain
+
+ns-638.awsdns-15.net
+ns-2010.awsdns-59.co.uk
+ns-1266.awsdns-30.org
+ns-151.awsdns-18.com
+
+
+ns-638.awsdns-15.net. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400
+
+# EC2
+A virtual computer running in AWS data centers
+
+# Architecture After EC2 is Created
+User
+ ↓
+jaynirvan.online
+ ↓
+Route53 DNS
+ ↓
+EC2 Public IP
+ ↓
+Nginx Reverse Proxy
+ ↓
+Docker Containers
+   ├ frontend
+   ├ backend
+   └ redis
+   13.127.107.30 --> with Elastic IP 13.202.1.245
+
+   Why Elastic Ip is Important bcoz if didn't apply the IP will change and DNS will break
+Once Elastic Ip is created 
+goto Route 53 --> select the hosited route --> create a record and add the name and elastic Ip 
+Now If user enters IP traffic will go to
+
+Browser
+ ↓
+Route53 DNS
+ ↓
+Elastic IP
+ ↓
+EC2 Server
+
+# Nignx
+ - it is a High Performance web server and reverse proxy
+| Feature         | Explanation                          |
+| --------------- | ------------------------------------ |
+| Web Server      | Serve HTML/CSS/JS files              |
+| Reverse Proxy   | Forward requests to backend services |
+| Load Balancer   | Distribute traffic across servers    |
+| SSL Termination | Handle HTTPS encryption              |
+| Caching         | Cache responses                      |
+
+
+without Reverse Proxy User ---> Backend Server
+
+Problem :
+1. Backend exposed directly
+2. No SSL
+3. No traffic routing
+4. Hard to scale
+
+with Nignx
+
+User
+|
+Nignx
+|
+Backend
+Benefit:
+Backend Hidden, SSL, Routing (Different servers), Performance (Caching & comparession) 
+User Browser
+ ↓
+jaynirvan.online
+ ↓
+Route53 DNS
+ ↓
+Elastic IP
+ ↓
+Nginx
+ ↓
+Docker Containers
+   ├ frontend (React)
+   ├ backend (Node API)
+   └ redis
+
+# Real Reverse Proxy Setup
+jaynirvan.online
+        ↓
+Nginx
+        ↓
+Frontend (Docker container)
+
+api.jaynirvan.online
+        ↓
+Nginx
+        ↓
+Backend API (Docker container)
+
+# New Architeture
+User Browser
+ ↓
+jaynirvan.online
+ ↓
+Nginx
+ ↓
+Frontend Container (React)
+
+User API Request
+ ↓
+api.jaynirvan.online
+ ↓
+Nginx
+ ↓
+Backend Container (Node.js) 
+So Nginx acts like a traffic controller.

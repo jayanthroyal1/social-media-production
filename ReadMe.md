@@ -57,3 +57,22 @@ docker compose -f docker-compose.dev.yml up --build
 
 For Production Mode
 docker compose -f docker-compose.prod.yml up
+
+# CI — Continuous Integration
+Automatically:
+Code pushed
+↓
+Build
+↓
+Run checks
+↓
+Produce artifact (Docker image)
+Goal: Ensure code builds successfully every time
+
+# CD — Continuous Delivery / Deployment
+Automatically
+Artifact built
+↓
+Deploy to server
+↓
+Run application
