@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - develop
   workflow_dispatch:
 
 jobs:
@@ -14,6 +15,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      - name: Set Image Tag
+        id: vars
+        run: |
+          if [[ "${GITHUB_REF##*/}" == "main" ]]; then
+            echo "TAG=latest" >> $GITHUB_OUTPUT
+          else
+            echo "TAG=develop" >> $GITHUB_OUTPUT
+          fi
+
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -21,13 +31,13 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Backend Image
-        run: docker build -t jayanthroyal/social-backend:latest ./backend
+        run: docker build -t jayanthroyal/social-backend:${{ steps.vars.outputs.TAG }} ./backend
 
       - name: Build Frontend Image
-        run: docker build -t jayanthroyal/social-frontend:latest ./frontend
+        run: docker build -t jayanthroyal/social-frontend:${{ steps.vars.outputs.TAG }} ./frontend
 
       - name: Push Backend Image
-        run: docker push jayanthroyal/social-backend:latest
+        run: docker push jayanthroyal/social-backend:${{ steps.vars.outputs.TAG }}
 
       - name: Push Frontend Image
-        run: docker push jayanthroyal/social-frontend:latest
+        run: docker push jayanthroyal/social-frontend:${{ steps.vars.outputs.TAG }}
