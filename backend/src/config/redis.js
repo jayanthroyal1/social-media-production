@@ -1,11 +1,11 @@
 const { createClient } = require("redis");
 
-console.log(
-  "Redis URL:",
-  `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
-);
 const redisClient = createClient({
-  url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
+  socket: {
+    host: process.env.REDIS_HOST,
+    port: Number(process.env.REDIS_PORT),
+    reconnectStrategy: (retries) => Math.min(retries * 100, 3000),
+  },
 });
 
 redisClient.on("connect", () => {
