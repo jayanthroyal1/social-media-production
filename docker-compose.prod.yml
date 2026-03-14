@@ -9,7 +9,8 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
     depends_on:
-      - redis
+      redis:
+        condition: service_healthy
     env_file:
       - ./backend/.env
     restart: always
@@ -29,3 +30,8 @@ services:
     image: redis:7-alpine
     container_name: social-redis
     restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
