@@ -23,7 +23,7 @@ const worker = new Worker(
 
     console.log(`sending notification to user ${userId} for post ${postId}`);
   },
-  { ioRedisconnection },
+  { connection: ioRedisconnection },
 );
 
 worker.on("completed", (job) => {
